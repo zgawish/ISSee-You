@@ -39,7 +39,7 @@ def extract_ISS_datapoints(json_response):
     
 
 # example url for gmap
-# api_key = AIzaSyAER1V2Xb7ldCTDB5jdIo0x1H0VkDZMjuw
+# api_key = {}
 # gmap_url = https://maps.googleapis.com/maps/api/place/findplacefromtext/json?input=Museum%20of%20Contemporary%20Art%20Australia&inputtype=textquery&fields=photos,formatted_address,name,rating,opening_hours,geometry&key=YOUR_API_KEY
 # gmap reference: https://developers.google.com/maps/documentation/places/web-service/search
 
