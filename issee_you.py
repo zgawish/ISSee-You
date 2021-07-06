@@ -1,4 +1,5 @@
 from math import cos, asin, sqrt, pi
+import requests
 """
 Outline
 -------
@@ -15,12 +16,30 @@ Things we need in database:
 - datetime column
 """
 
-def get_ISS_data():
-    iss_url = http://api.open-notify.org/iss-now.json
-    response = responses.get
+def get_ISS_json():
+    iss_url = "http://api.open-notify.org/iss-now.json"
+    response = requests.get(iss_url)
+    data = response.json()
+    print(data)
+    return data
+
+def foo():
     pass
 
+def extract_ISS_datapoints(json_response):
+    json_data = get_ISS_json()
+    print(json_data)
+    counter = 0
+    for key, value in json_data.items():
+        print(key)
+        print(value)
+        counter += 1
+        if counter == 2:
+            break
+    
+
 # example url for gmap
+# api_key = AIzaSyAER1V2Xb7ldCTDB5jdIo0x1H0VkDZMjuw
 # gmap_url = https://maps.googleapis.com/maps/api/place/findplacefromtext/json?input=Museum%20of%20Contemporary%20Art%20Australia&inputtype=textquery&fields=photos,formatted_address,name,rating,opening_hours,geometry&key=YOUR_API_KEY
 # gmap reference: https://developers.google.com/maps/documentation/places/web-service/search
 
@@ -36,4 +55,9 @@ def get_ISS_data():
 #    c = 2 * math.atan2(math.sqrt(a), math.sqrt(1 - a))
 #    distance = R * c
 #    return distance
+
+if __name__ == "__main__":
+    data = get_ISS_json()
+    extract_ISS_datapoints(data)
+    
     
