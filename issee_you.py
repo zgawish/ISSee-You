@@ -23,9 +23,6 @@ def get_ISS_json():
     print(data)
     return data
 
-def foo():
-    pass
-
 def extract_ISS_datapoints(json_response):
     json_data = get_ISS_json()
     print(json_data)
