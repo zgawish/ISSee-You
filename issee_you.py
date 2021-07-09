@@ -25,7 +25,7 @@ Things we need in database:
 """
 USER_LOC = 'https://maps.googleapis.com/maps/api/place/findplacefromtext/json?input={zip_code}&inputtype=textquery&fields=formatted_address,name,geometry&key={API_KEY}'
 ISS_LOC = 'https://maps.googleapis.com/maps/api/geocode/json?latlng={location}&key={API_KEY}' #ex: 40.714224,-73.961452
-API_KEY = 'AIzaSyAER1V2Xb7ldCTDB5jdIo0x1H0VkDZMjuw'
+API_KEY = ''
 
 engine = create_engine('mysql://root:codio@localhost/issee_you')
 
