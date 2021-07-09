@@ -9,4 +9,4 @@ CREATE TABLE iss_data (
 );
 
 INSERT INTO iss_data (time, latitude, longitude, distance)
-VALUES ('00:00:00', "27.9242", "50.2854", DEFAULT);
+VALUES ('0000:011', "27.9242", "50.2854", 278.0);
