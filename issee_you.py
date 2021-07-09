@@ -25,7 +25,7 @@ Things we need in database:
 """
 USER_LOC = 'https://maps.googleapis.com/maps/api/place/findplacefromtext/json?input={zip_code}&inputtype=textquery&fields=formatted_address,name,geometry&key={API_KEY}'
 ISS_LOC = 'https://maps.googleapis.com/maps/api/geocode/json?latlng={location}&key={API_KEY}' #ex: 40.714224,-73.961452
-API_KEY = ''
+API_KEY = 'AIzaSyAER1V2Xb7ldCTDB5jdIo0x1H0VkDZMjuw'
 
 engine = create_engine('mysql://root:codio@localhost/issee_you')
 
@@ -137,12 +137,12 @@ def get_updates(user_lat, user_lng):
     add_to_table(data)
     graph_data()
     print('Distance between ISS and you is ' + str(distance) + ' kilometers')
-    print('To exit, press CRTL + X + C')
+    print('To exit, press CRTL + C')
     print('---------------')
 
 
 def graph_data():
-    data = pd.read_sql_query("SELECT * FROM iss_data ORDER BY time DESC LIMIT 20", con=engine)
+    data = pd.read_sql_query("SELECT * FROM iss_data ORDER BY time DESC LIMIT 10", con=engine)
     time = [str(data['time'][i]) for i in range(len(data['time']) - 1, -1, -1)]
     distance = [data['distance'][i] for i in range(len(data['distance']) - 1, -1, -1)]
 
@@ -175,6 +175,7 @@ def main():
         return
     clear_table()
     user_loc = get_user_loc()
+    print(user_loc['formatted_address'])
     if len(user_loc) == 0:
         print('error')
         return
